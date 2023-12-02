@@ -1,0 +1,25 @@
+### OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+.zshrc.bak
+
+### Various project files
+node_modules/
+.vscode/
+.editorconfig
+dist/
+logs/
+*.log
+
+### Dev env
+.env
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.eslintcache
+coverage/
