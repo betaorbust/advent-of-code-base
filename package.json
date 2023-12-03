@@ -1,5 +1,5 @@
 {
-	"name": "@cjbrunner/advent-of-code",
+	"name": "@cjbrunner/advent-of-code-2023",
 	"private": true,
 	"version": "0.0.0",
 	"description": "AoC",
@@ -14,15 +14,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/cjbrunner/advent-of-code-base.git"
+		"url": "git+https://github.com/cjbrunner/advent-of-code-2023.git"
 	},
 	"keywords": [],
 	"author": "Chris Brunner",
 	"license": "UNLICENSED",
 	"bugs": {
-		"url": "https://github.com/cjbrunner/advent-of-code-base"
+		"url": "https://github.com/cjbrunner/advent-of-code-2023"
 	},
-	"homepage": "https://github.com/cjbrunner/advent-of-code-base#readme",
+	"homepage": "https://github.com/cjbrunner/advent-of-code-2023#readme",
 	"devDependencies": {
 		"@babel/preset-env": "^7.23.5",
 		"@betaorbust/eslint-config": "^5.0.0",
