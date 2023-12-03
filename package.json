@@ -3,7 +3,6 @@
 	"private": true,
 	"version": "0.0.0",
 	"description": "AoC",
-	"type": "module",
 	"scripts": {
 		"format": "prettier --loglevel warn --write \"**/*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}\"",
 		"day": "func() { npx node ./src/$1/solution.js; }; func",
