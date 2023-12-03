@@ -25,8 +25,7 @@ fs.mkdirSync(dirPath);
 const test = `import { part1 } from './part1';
 // import { part2 } from './part2';
 
-const testCasesPt1: [Parameters<typeof part1>[0], ReturnType<typeof part1>][] =
-	[['some input', 'some output']];
+const testCasesPt1 = [['some input', 'some output']];
 
 describe('Day ${today}, part 1', () => {
 	test.each(testCasesPt1)('Input: %s. Output: %s', (input, expected) => {
@@ -34,8 +33,7 @@ describe('Day ${today}, part 1', () => {
 	});
 });
 
-// const testCasesPt2: [Parameters<typeof part2>[0], ReturnType<typeof part2>][] =
-// 	[['some input', 'some output']];
+// const testCasesPt2 =	[['some input', 'some output']];
 
 // describe('Day ${today}, part 2', () => {
 // 	test.each(testCasesPt2)('Input: %s. Output: %s', (input, expected) => {
@@ -47,14 +45,14 @@ describe('Day ${today}, part 1', () => {
 const part1 = `/**
  Part 1
 */
-export const part1 = (input: string) => {
+export const part1 = (input) => {
 	console.log(input);
     return 'not implemented';
 };`;
 const part2 = `/**
  Part 2
 */
-export const part2 = (input: string) => {
+export const part2 = (input) => {
 	console.log(input);
     return 'not implemented';
 };`;
@@ -81,8 +79,8 @@ const prompt = `# Advent of Code Day ${today}
 </pre>
 `;
 
-fs.writeFileSync(path.join(dirPath, 'all.test.ts'), test);
-fs.writeFileSync(path.join(dirPath, 'part1.ts'), part1);
-fs.writeFileSync(path.join(dirPath, 'part2.ts'), part2);
-fs.writeFileSync(path.join(dirPath, 'solution.ts'), solution);
+fs.writeFileSync(path.join(dirPath, 'all.test.js'), test);
+fs.writeFileSync(path.join(dirPath, 'part1.js'), part1);
+fs.writeFileSync(path.join(dirPath, 'part2.js'), part2);
+fs.writeFileSync(path.join(dirPath, 'solution.js'), solution);
 fs.writeFileSync(path.join(dirPath, 'prompt.md'), prompt);

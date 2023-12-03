@@ -6,7 +6,7 @@ But hey, if you want to try it out, go for it.
 
 ### Getting Started
 
-Fork this repo, then
+Clone this repo, then
 
 ```sh
 npm install
