@@ -26,8 +26,6 @@
 	"homepage": "https://github.com/betaorbust/advent-of-code-base#readme",
 	"devDependencies": {
 		"@betaorbust/eslint-config": "^5.0.0",
-		"@commitlint/cli": "^18.4.3",
-		"@commitlint/config-conventional": "^18.4.3",
 		"@jest/globals": "^29.7.0",
 		"@types/jest": "^29.5.10",
 		"eslint": "^8.54.0",
@@ -41,25 +39,6 @@
 	},
 	"lint-staged": {
 		"*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}": "prettier --write"
-	},
-	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		],
-		"rules": {
-			"subject-case": [
-				2,
-				"always",
-				[
-					"sentence-case"
-				]
-			],
-			"subject-full-stop": [
-				2,
-				"always",
-				"."
-			]
-		}
 	},
 	"dependencies": {
 		"tslib": "^2.6.2"
