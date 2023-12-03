@@ -22,8 +22,8 @@ const nextDir = today.toString().padStart(2, '0');
 const dirPath = path.join('./src', nextDir);
 fs.mkdirSync(dirPath);
 
-const test = `import { part1 } from './part1';
-// import { part2 } from './part2';
+const test = `const { part1 } = require('./part1');
+// const { part2 } = require('./part2');
 
 const testCasesPt1 = [['some input', 'some output']];
 
@@ -56,8 +56,8 @@ export const part2 = (input) => {
 	console.log(input);
     return 'not implemented';
 };`;
-const solution = `import { part1 } from './part1';
-import { part2 } from './part2';
+const solution = `const { part1 } = require('./part1');
+const { part2 } = require('./part2');
 
 const input = \`\`;
 
