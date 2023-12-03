@@ -45,14 +45,14 @@ describe('Day ${today}, part 1', () => {
 const part1 = `/**
  Part 1
 */
-export const part1 = (input) => {
+module.exports.part1 = (input) => {
 	console.log(input);
     return 'not implemented';
 };`;
 const part2 = `/**
  Part 2
 */
-export const part2 = (input) => {
+module.exports.part2 = (input) => {
 	console.log(input);
     return 'not implemented';
 };`;
