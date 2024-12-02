@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"format": "prettier --loglevel warn --write \"**/*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}\"",
-		"day": "func() {  npx ts-node ./src/$1/solution.ts; }; func",
+		"day": "func() {  npx tsx ./$1/solution.ts; }; func",
 		"new": "node ./new-day.js",
 		"prepare": "husky install",
 		"lint": "eslint ./",
@@ -27,7 +27,6 @@
 		"lint-staged": "^15.2.10",
 		"prettier": "^3.4.1",
 		"ts-jest": "^29.2.5",
-		"ts-node": "^10.9.2",
 		"typescript": "^5.7.2",
 		"typescript-eslint": "^8.16.0"
 	},
@@ -35,7 +34,8 @@
 		"*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}": "prettier --write"
 	},
 	"dependencies": {
-		"tslib": "^2.8.1"
+		"tslib": "^2.8.1",
+		"tsx": "^4.19.2"
 	},
 	"jest": {
 		"testPathIgnorePatterns": [

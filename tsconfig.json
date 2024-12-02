@@ -4,8 +4,8 @@
 		"module": "NodeNext",
 		"target": "ES2024",
 		"lib": ["ES2024"],
-		"outDir": "./dist",
-		"rootDir": "./src",
-		"moduleResolution": "NodeNext"
+		"noEmit": true,
+		"moduleResolution": "NodeNext",
+		"allowImportingTsExtensions": true
 	}
 }
