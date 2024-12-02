@@ -1,16 +1,15 @@
-const fs = require('node:fs');
-const path = require('node:path');
+import { mkdirSync, readdirSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 // Make sure ./src is there
 try {
-	fs.mkdirSync('./src');
+	mkdirSync('./src');
 } catch {
 	// do nothing
 }
 
 const lastDir =
-	fs
-		.readdirSync('./src', { withFileTypes: true })
+	readdirSync('./src', { withFileTypes: true })
 		.filter((f) => f.isDirectory() && /^\d\d$/.test(f.name))
 		.map((f) => f.name)
 		.sort()
@@ -19,8 +18,8 @@ const lastDir =
 const today = Number.parseInt(lastDir, 10) + 1;
 const nextDir = today.toString().padStart(2, '0');
 
-const dirPath = path.join('./src', nextDir);
-fs.mkdirSync(dirPath);
+const dirPath = join('./src', nextDir);
+mkdirSync(dirPath);
 
 const test = `import { part1 } from './part1';
 // import { part2 } from './part2';
@@ -81,8 +80,8 @@ const prompt = `# Advent of Code Day ${today}
 </pre>
 `;
 
-fs.writeFileSync(path.join(dirPath, 'all.test.ts'), test);
-fs.writeFileSync(path.join(dirPath, 'part1.ts'), part1);
-fs.writeFileSync(path.join(dirPath, 'part2.ts'), part2);
-fs.writeFileSync(path.join(dirPath, 'solution.ts'), solution);
-fs.writeFileSync(path.join(dirPath, 'prompt.md'), prompt);
+writeFileSync(join(dirPath, 'all.test.ts'), test);
+writeFileSync(join(dirPath, 'part1.ts'), part1);
+writeFileSync(join(dirPath, 'part2.ts'), part2);
+writeFileSync(join(dirPath, 'solution.ts'), solution);
+writeFileSync(join(dirPath, 'prompt.md'), prompt);

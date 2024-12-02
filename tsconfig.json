@@ -1,12 +1,11 @@
 {
+	"extends": "@tsconfig/strictest/tsconfig.json",
 	"compilerOptions": {
-		"strict": true,
-		"noEmit": false,
-		"module": "CommonJS",
+		"module": "NodeNext",
+		"target": "ES2024",
+		"lib": ["ES2024"],
 		"outDir": "./dist",
 		"rootDir": "./src",
-		"target": "ESNext",
-		"lib": ["ESNext"],
-		"esModuleInterop": true
+		"moduleResolution": "NodeNext"
 	}
 }
