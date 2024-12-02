@@ -27,6 +27,7 @@
 		"lint-staged": "^15.2.10",
 		"prettier": "^3.4.1",
 		"ts-jest": "^29.2.5",
+		"tsx": "^4.19.2",
 		"typescript": "^5.7.2",
 		"typescript-eslint": "^8.16.0"
 	},
@@ -34,8 +35,7 @@
 		"*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}": "prettier --write"
 	},
 	"dependencies": {
-		"tslib": "^2.8.1",
-		"tsx": "^4.19.2"
+		"tslib": "^2.8.1"
 	},
 	"jest": {
 		"testPathIgnorePatterns": [

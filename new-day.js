@@ -17,7 +17,7 @@ const test = `import { part1 } from './part1.ts';
 // import { part2 } from './part2.ts';
 
 const testCasesPt1: [Parameters<typeof part1>[0], ReturnType<typeof part1>][] =
-	[['some input', 'some output']];
+	[[\`some input\`, \`some output\`]];
 
 describe('Day ${today}, part 1', () => {
 	test.each(testCasesPt1)('Input: %s. Output: %s', (input, expected) => {
@@ -39,15 +39,13 @@ const part1 = `/**
  Part 1
 */
 export const part1 = (input: string) => {
-	console.log(input);
-    return 'not implemented';
+	return 'not implemented';
 };`;
 const part2 = `/**
  Part 2
 */
 export const part2 = (input: string) => {
-	console.log(input);
-    return 'not implemented';
+	return 'not implemented';
 };`;
 const solution = `import { part1 } from './part1.ts';
 import { part2 } from './part2.ts';
