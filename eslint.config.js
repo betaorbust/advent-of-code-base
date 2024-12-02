@@ -8,4 +8,12 @@ export default tseslint.config(
 	// Switch this to configs.strict or fall back to
 	// configs.recommended based on typescript proficiency
 	tseslint.configs.strictTypeChecked,
+	{
+		languageOptions: {
+			parserOptions: {
+				projectService: true,
+				tsconfigRootDir: import.meta.dirname,
+			},
+		},
+	},
 );

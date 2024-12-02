@@ -38,11 +38,11 @@ git push --all
    │  ├─ all.test.ts
    │  ├─ part1.ts
    │  ├─ part2.ts
-   │  ├─ prompt.md
+   │  ├─ problem.md
    │  ├─ solution.ts
    ```
-2. Copy the day's prompt into `prompt.md` so you don't have to keep switching between the browser and your editor.
-3. Copy the prompt's example input/output into the test array in `all.test.ts`
+2. Copy the day's problem into `problem.md` so you don't have to keep switching between the browser and your editor.
+3. Copy the problem's example input/output into the test array in `all.test.ts`
 4. Run `npm run test:watch ./01` (or whatever day's directory you're on)
 5. Implement the solution in `part1.ts` until you get the ✅ in your test
 6. Copy the full input from AoC into the `input` in `solution.ts`
