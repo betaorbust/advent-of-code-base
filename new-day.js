@@ -13,8 +13,8 @@ const nextDir = today.toString().padStart(2, '0');
 
 mkdirSync(nextDir);
 
-const test = `import { part1 } from './part1';
-// import { part2 } from './part2';
+const test = `import { part1 } from './part1.ts';
+// import { part2 } from './part2.ts';
 
 const testCasesPt1: [Parameters<typeof part1>[0], ReturnType<typeof part1>][] =
 	[['some input', 'some output']];
@@ -49,8 +49,8 @@ export const part2 = (input: string) => {
 	console.log(input);
     return 'not implemented';
 };`;
-const solution = `import { part1 } from './part1';
-import { part2 } from './part2';
+const solution = `import { part1 } from './part1.ts';
+import { part2 } from './part2.ts';
 
 const input = \`\`;
 
