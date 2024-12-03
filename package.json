@@ -5,31 +5,44 @@
 	"description": "AoC",
 	"type": "module",
 	"scripts": {
-		"format": "prettier --loglevel warn --write \"**/*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}\"",
+		"format": "prettier --log-level warn --write \"**/*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}\"",
 		"day": "func() {  npx tsx ./$1/solution.ts; }; func",
-		"new": "node ./new-day.js",
-		"prepare": "husky",
+		"next": "tsx ./scaffold/next.ts",
+		"prepare": "husky && husky install",
 		"lint": "eslint ./",
 		"test": "jest",
 		"test:watch": "jest --watch"
 	},
-	"keywords": [],
+	"keywords": [
+		"Advent of Code"
+	],
 	"author": "Jacques Favreau",
 	"license": "UNLICENSED",
 	"devDependencies": {
+		"@commitlint/cli": "^19.6.0",
+		"@commitlint/config-conventional": "^19.6.0",
 		"@eslint/js": "^9.16.0",
 		"@jest/globals": "^29.7.0",
+		"@trivago/prettier-plugin-sort-imports": "^4.3.0",
 		"@tsconfig/strictest": "^2.0.5",
 		"@types/jest": "^29.5.14",
+		"@types/prompts": "^2.4.9",
+		"@types/turndown": "^5.0.5",
+		"dotenv": "^16.4.5",
 		"eslint": "^9.16.0",
+		"file-system-cache": "^3.0.0-alpha.8",
 		"husky": "^9.1.7",
+		"inquirer": "^12.1.0",
 		"jest": "^29.7.0",
 		"lint-staged": "^15.2.10",
+		"node-html-parser": "^6.1.13",
 		"prettier": "^3.4.1",
 		"ts-jest": "^29.2.5",
 		"tsx": "^4.19.2",
+		"turndown": "^7.2.0",
 		"typescript": "^5.7.2",
-		"typescript-eslint": "^8.16.0"
+		"typescript-eslint": "^8.16.0",
+		"zod": "^3.23.8"
 	},
 	"lint-staged": {
 		"*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}": "prettier --write"
@@ -53,5 +66,24 @@
 			"jsx",
 			"json"
 		]
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		],
+		"rules": {
+			"subject-case": [
+				0,
+				"always",
+				[
+					"sentence-case"
+				]
+			],
+			"subject-full-stop": [
+				0,
+				"always",
+				"."
+			]
+		}
 	}
 }

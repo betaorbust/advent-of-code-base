@@ -29,25 +29,25 @@ git push --all
 
 </details>
 
-### Developing
+### Working with the Advent of Code
 
-1. Run `npm run new` to scaffold a directory for the day's work
+1. Run `npm run next` to scaffold a directory for the day's work and pull in the Part 1 problem.
+   (If this is the first time you're running this, you'll be prompted to set up a session cookie and pick the year.)
+   The day's Part 1 problem statement will be pulled into `problem.md`, the Input will be stored in `solution.ts` and a `part1.ts` and `part1.test.ts` file will be scaffolded out for you.
    ```
    /
    ├─ 01/
-   │  ├─ all.test.ts
    │  ├─ part1.ts
-   │  ├─ part2.ts
+   │  ├─ part1.test.ts
    │  ├─ problem.md
    │  ├─ solution.ts
    ```
-2. Copy the day's problem into `problem.md` so you don't have to keep switching between the browser and your editor.
-3. Copy the problem's example input/output into the test array in `all.test.ts`
-4. Run `npm run test:watch ./01` (or whatever day's directory you're on)
-5. Implement the solution in `part1.ts` until you get the ✅ in your test
-6. Copy the full input from AoC into the `input` in `solution.ts`
-7. Run `npm run day 01` to print out the solved puzzle.
-8. Uncomment the Part 2 tests in `all.test.ts` and repeat from #4 for the second part.
+2. Update your `part1.test.ts` file with whatever test case the problem statement gives you and the expected answer.
+3. Run `npm run test:watch ./01` (or whatever day's directory you're on) to start up testing while you work on the solution.
+4. Implement the solution in `part1.ts` until you get the ✅ in your test.
+5. Run `npm run day 01` to print out the solved puzzle running your code against the Input for the day.
+6. Submit your answer on the website 🎉
+7. Run `npm run next` to pull down and scaffold out part 2 in the same way.
 
 ## Code of Conduct
 
