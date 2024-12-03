@@ -130,7 +130,7 @@ if (part === 1) {
 }
 
 execSync(
-	`prettier --write "${dir}/*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}"`,
+	`prettier --write --log-level warn "${dir}/*.{js,ts,jsx,tsx,mdx,vue,json,json5,yaml,md,html,less,sass,css,gql}"`,
 	{
 		cwd: rootDir,
 		stdio: 'inherit',
