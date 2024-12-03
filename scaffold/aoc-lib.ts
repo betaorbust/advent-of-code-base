@@ -10,8 +10,6 @@ const cachePathBase = path.resolve(
 	'../.aoc-network-cache.json',
 );
 
-console.log({ cachePathBase });
-
 const requestResult = z.object({
 	status: z.number(),
 	statusText: z.string(),
