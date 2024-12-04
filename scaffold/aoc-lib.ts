@@ -208,6 +208,7 @@ ${content}`,
 		console.log(`Day ${day} input not found. Maybe it wasn't published yet?
  Got this from the server:
  ${content}`);
+		process.exit(1);
 	}
 
 	// They come with an extra newline at the end
