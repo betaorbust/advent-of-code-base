@@ -40,11 +40,6 @@ function getDayAndPart() {
 
 const { day, part, dir } = getDayAndPart();
 
-// If we're starting a new day, we need to create the directory
-if (part === 1) {
-	mkdirSync(dir);
-}
-
 const test1 = (dayNum: number) => `import { part1 } from './part1.ts';
 
 const testCasesPt1: [Parameters<typeof part1>[0], ReturnType<typeof part1>][] =
@@ -110,6 +105,8 @@ ${problemPt2}
 if (part === 1) {
 	const input = await getInput(day);
 	const problemStatement1 = await getProblem(day, 1);
+	// If we're starting a new day, we need to create the directory
+	mkdirSync(dir);
 	writeFileSync(join(dir, 'solution.ts'), solution1(day, input));
 	writeFileSync(join(dir, 'part1.ts'), part1);
 	writeFileSync(join(dir, 'part1.test.ts'), test1(day));
