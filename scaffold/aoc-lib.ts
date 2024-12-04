@@ -24,7 +24,7 @@ const cachedFetch = async (urlPath: string, options?: RequestInit) => {
 	const { headers, ...otherOptions } = options ?? {};
 	const { cookie, debugLogger } = await getConfig();
 	debugLogger(
-		`Fetching ${urlPath} with options:\n${JSON.stringify(otherOptions, null, 2)}`,
+		`Fetching ${urlPath} with options: ${JSON.stringify(otherOptions, null, 2)}`,
 	);
 
 	let response: RequestResult | undefined;
@@ -37,7 +37,6 @@ const cachedFetch = async (urlPath: string, options?: RequestInit) => {
 		}
 	}
 	if (response === undefined) {
-		debugLogger(`Cache miss for ${urlPath}`);
 		const networkResponse = await fetch(urlPath, {
 			...otherOptions,
 			headers: {

@@ -1,5 +1,7 @@
 import fs from 'node:fs';
+import { getConfig } from './get-config.ts';
 
+const { debugLogger } = await getConfig();
 /**
  * A very basic file-based cache that takes a key and value and stores it as JSON in a file
  */
@@ -22,6 +24,7 @@ export class FileCache<T = unknown> {
 	}
 
 	get(key: string) {
+		debugLogger(`Cache ${key in this.memoryCache ? 'hit' : 'miss'} for ${key}`);
 		return this.memoryCache[key];
 	}
 
@@ -31,6 +34,7 @@ export class FileCache<T = unknown> {
 			this.cachePath,
 			JSON.stringify(this.memoryCache, null, '\t'),
 		);
+		debugLogger(`Cache set for ${key}`);
 	}
 	delete(key: string) {
 		// Just... kinda gotta be a dynamic delete
@@ -40,5 +44,6 @@ export class FileCache<T = unknown> {
 			this.cachePath,
 			JSON.stringify(this.memoryCache, null, '\t'),
 		);
+		debugLogger(`Cache deleted for ${key}`);
 	}
 }
