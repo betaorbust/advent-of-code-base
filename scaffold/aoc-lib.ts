@@ -160,7 +160,7 @@ ${body}`,
 		replacement(content, node) {
 			// If there is only text inside the code block, use ``.
 			if (node.childNodes.length === 1 && node.childNodes[0].nodeType === 3) {
-				return `\`\`\`\n${content}\n\`\`\``;
+				return `\`\`\`\n${content}${content.endsWith('\n') ? '' : '\n'}\`\`\``;
 			}
 			return node.outerHTML;
 		},
