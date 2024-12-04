@@ -96,11 +96,13 @@ ${body}`,
 		);
 		process.exit(1);
 	}
-	const root = parse(body);
+	const root = parse(body, {
+		blockTextElements: {},
+	});
 
 	// Handle <pre><code>...</code></pre> blocks so we can target <pre> as ```
 	root.querySelectorAll('pre > code').forEach((el) => {
-		el.replaceWith(el.innerText);
+		el.replaceWith(el.innerHTML);
 	});
 
 	// AOC puts <em> inside <code> to do bolded code, but markdown doesn't support
@@ -111,7 +113,11 @@ ${body}`,
 			(el) =>
 				el.childNodes.length === 1 && el.childNodes[0]?.rawTagName === 'em',
 		)
-		.forEach((el) => el.replaceWith(`<em><code>${el.innerText}</code></em>`));
+		.forEach((el) => {
+			el.replaceWith(
+				`<em><code>${el.firstChild?.childNodes.toString() || ''}</code></em>`,
+			);
+		});
 
 	// AOC uses <em> for bold. Replace with <strong> so it converts correctly
 	root
@@ -131,16 +137,36 @@ ${body}`,
 	// Convert to markdown
 	const turndownService = new TurndownService({
 		bulletListMarker: '-',
+		codeBlockStyle: 'fenced',
 	});
+
+	// Types are messed up for the node, so turning these off for now
+	/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return */
 
 	// Convert <code> to `code` instead of ```code```
 	// because AOC uses <pre> for code blocks
 	turndownService.addRule('code', {
 		filter: 'code',
-		replacement: function (content) {
-			return '`' + content + '`';
+		replacement(content, node) {
+			// If there is only text inside the code block, use ``.
+			if (node.childNodes.length === 1 && node.childNodes[0].nodeType === 3) {
+				return `\`${content}\``;
+			}
+			return node.outerHTML;
 		},
 	});
+
+	turndownService.addRule('pre', {
+		filter: 'pre',
+		replacement(content, node) {
+			// If there is only text inside the code block, use ``.
+			if (node.childNodes.length === 1 && node.childNodes[0].nodeType === 3) {
+				return `\`\`\`\n${content}\n\`\`\``;
+			}
+			return node.outerHTML;
+		},
+	});
+	/* eslint-enable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return */
 
 	const [part1, part2] = root
 		.querySelectorAll('.day-desc')
