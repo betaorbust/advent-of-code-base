@@ -50,7 +50,7 @@ const test1 = (dayNum: number) => `import { part1 } from './part1.ts';
 const testCasesPt1: [Parameters<typeof part1>[0], ReturnType<typeof part1>][] =
 	[[\`some input\`, \`some output\`]];
 
-describe('Day ${dayNum.toString()}, part 1', () => {
+describe('Day ${dayNum}, part 1', () => {
 	test.each(testCasesPt1)('Input: %s. Output: %s', (input, expected) => {
 		expect(part1(input)).toBe(expected);
 	});
@@ -62,7 +62,7 @@ const test2 = (dayNum: number) => `import { part2 } from './part2.ts';
 const testCasesPt2: [Parameters<typeof part2>[0], ReturnType<typeof part2>][] =
 	[[\`some input\`, \`some output\`]];
 
-describe('Day ${dayNum.toString()}, part 2', () => {
+describe('Day ${dayNum}, part 2', () => {
 	test.each(testCasesPt2)('Input: %s. Output: %s', (input, expected) => {
 		expect(part2(input)).toBe(expected);
 	});
@@ -88,7 +88,7 @@ const solution1 = (
 
 const input = \`${input.replaceAll(/\$\{/g, '\\${').replaceAll(/`/g, '\\`')}\`;
 
-console.log('Day ${dayNum.toString()} Part 1:', part1(input));
+console.log('Day ${dayNum} Part 1:', part1(input));
 
 `;
 

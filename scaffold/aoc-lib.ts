@@ -84,12 +84,12 @@ const cachedFetch = async (urlPath: string, options?: RequestInit) => {
 export async function getProblem(day: number, part: 1 | 2) {
 	const { year } = await getConfig();
 	const { body, status, deleteCachedResponse } = await cachedFetch(
-		`https://adventofcode.com/${year.toString()}/day/${day.toString()}#part-${part.toString()}`,
+		`https://adventofcode.com/${year}/day/${day}#part-${part}`,
 		{},
 	);
 	if (status === 404) {
 		console.log(
-			`Day ${day.toString()} problem statement not found. Maybe it wasn't published yet? 
+			`Day ${day} problem statement not found. Maybe it wasn't published yet? 
 Got this from the server:
 ${body}`,
 		);
@@ -173,16 +173,14 @@ ${body}`,
 
 	if (part === 1) {
 		if (!part1) {
-			console.log(
-				`Could not find problem statement for part 1 of day ${day.toString()}`,
-			);
+			console.log(`Could not find problem statement for part 1 of day ${day}`);
 			process.exit(1);
 		}
 		return part1;
 	}
 	if (!part2) {
 		console.log(
-			`Could not find problem statement for part 2 of day ${day.toString()}. Is part 1 complete?`,
+			`Could not find problem statement for part 2 of day ${day}. Is part 1 complete?`,
 		);
 		deleteCachedResponse();
 		process.exit(1);
@@ -193,12 +191,12 @@ ${body}`,
 export async function getInput(day: number) {
 	const { year } = await getConfig();
 	const { body: content, status } = await cachedFetch(
-		`https://adventofcode.com/${year.toString()}/day/${day.toString()}/input`,
+		`https://adventofcode.com/${year}/day/${day}/input`,
 		{},
 	);
 	if (status === 400) {
 		console.log(
-			`Could not fetch day ${day.toString()} input. 
+			`Could not fetch day ${day} input. 
 Got a 400 (likely unauthenticated) error. Maybe your cookie in the .env file is invalid? Deleting the .env file will prompt you to re-authenticate.
 
 Got this from the server:
@@ -207,7 +205,7 @@ ${content}`,
 		process.exit(1);
 	}
 	if (status === 404) {
-		console.log(`Day ${day.toString()} input not found. Maybe it wasn't published yet?
+		console.log(`Day ${day} input not found. Maybe it wasn't published yet?
  Got this from the server:
  ${content}`);
 	}

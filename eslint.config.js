@@ -18,6 +18,17 @@ export default tseslint.config(
 	{
 		rules: {
 			'@typescript-eslint/no-shadow': 'error',
+			'@typescript-eslint/restrict-template-expressions': [
+				'error',
+				{
+					allow: [{ name: ['Error', 'URL', 'URLSearchParams'], from: 'lib' }],
+					allowAny: true,
+					allowBoolean: true,
+					allowNullish: true,
+					allowNumber: true,
+					allowRegExp: true,
+				},
+			],
 		},
 	},
 );
