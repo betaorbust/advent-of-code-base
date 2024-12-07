@@ -17,6 +17,15 @@ export default tseslint.config(
 	},
 	{
 		rules: {
+			camelcase: [
+				'error',
+				{
+					properties: 'never',
+					ignoreDestructuring: false,
+					ignoreImports: false,
+					ignoreGlobals: false,
+				},
+			],
 			'@typescript-eslint/no-shadow': 'error',
 			'@typescript-eslint/restrict-template-expressions': [
 				'error',
@@ -28,6 +37,10 @@ export default tseslint.config(
 					allowNumber: true,
 					allowRegExp: true,
 				},
+			],
+			'@typescript-eslint/no-unnecessary-condition': [
+				'error',
+				{ allowConstantLoopConditions: true },
 			],
 		},
 	},
