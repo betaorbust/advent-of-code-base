@@ -4,8 +4,8 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
 	eslint.configs.recommended,
-	// Switch this to configs.strict or fall back to
-	// configs.recommended based on typescript proficiency
+	// Switch this to tselinst.configs.strict or fall back to
+	// tseslint.configs.recommended if you want less strictness.
 	tseslint.configs.strictTypeChecked,
 	{
 		languageOptions: {
@@ -17,13 +17,12 @@ export default tseslint.config(
 	},
 	{
 		rules: {
-			// Love this rule but it obfuscates squigglies when things are
+			// Love these rules but they obfuscate squigglies when things are
 			// actually going wrong for other reasons.
 			'@typescript-eslint/no-unsafe-call': 'off',
-
-			// Love this rule but it obfuscates squigglies when things are
-			// actually going wrong for other reasons.
 			'@typescript-eslint/no-unsafe-assignment': 'off',
+			'@typescript-eslint/no-unsafe-return': 'off',
+			'@typescript-eslint/no-unsafe-argument': 'off',
 
 			// typof new String('foo') === 'object' 😬
 			'no-new-wrappers': 'error',
